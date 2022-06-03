@@ -1,0 +1,88 @@
+.mouse-scroll {
+    display: inline-flex;
+    flex-direction: column;
+    bottom: 2rem;
+    position: absolute;
+    z-index: 1;
+
+    .mouse {
+        border-radius: 1.4rem;
+        height: 4.2rem;
+        width: 2.4rem;
+    }
+
+    .wheel {
+        position: relative;
+        animation: mouse-wheel 0.6s linear infinite;
+        background: #fff;
+        border-radius: 0.8rem;
+        height: 0.4rem;
+        margin: 0.5rem auto;
+        width: 0.4rem;
+    }
+
+    .mouse,
+    .wheel {
+        border: 2px solid #fff;
+    }
+
+    .arrow {
+        span {
+            border-bottom: 2px solid #fff;
+            border-right: 2px solid #fff;
+            display: block;
+            height: 1.6rem;
+            margin: 0 0 0.3rem 0.4rem;
+            transform: rotate(45deg);
+            width: 1.6rem;
+            animation: mouse-scroll 1s infinite;
+
+            &:first-child {
+                animation-delay: 0.1s;
+                animation-direction: alternate;
+                margin-top: 1px;
+            }
+
+            &:nth-child(2) {
+                animation-delay: 0.2s;
+                animation-direction: alternate;
+                margin-top: -0.6rem;
+            }
+
+            &:last-child {
+                animation-delay: 0.3s;
+                margin-top: -0.6rem;
+            }
+        }
+    }
+}
+
+@keyframes mouse-wheel {
+    0% {
+        transform: translateY(1px);
+    }
+    25% {
+        transform: translateY(2px);
+    }
+    50% {
+        transform: translateY(3px);
+    }
+    75% {
+        transform: translateY(2px);
+    }
+    100% {
+        transform: translateY(1px);
+    }
+}
+
+@keyframes mouse-scroll {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,138 @@
+.about {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  max-width: 122.5rem;
+  margin: 0 auto;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+    @media screen and (max-width: 991px) {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    h3 {
+      width: 30%;
+      font-size: 0;
+      margin: 0;
+      align-self: center;
+
+      @media screen and (max-width: 767px) {
+        width: 70%;
+      }
+    }
+
+    p {
+      max-width: 80rem;
+      margin: 0 auto;
+      text-align: justify;
+      color: #888;
+      line-height: 2.8rem;
+
+      &:last-of-type {
+        margin: 1.2rem auto 2rem;
+      }
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-areas: "text map";
+      grid-template-columns: 1fr 1fr;
+      gap: 2.4rem;
+
+      .about-text {
+        position: relative;
+        grid-area: text;
+        filter: brightness(110%);
+        border: 1px solid #ddd;
+
+        ul {
+          width: 100%;
+          padding: 1.2rem 6rem 1.1rem;
+          display: inline-flex;
+          flex-direction: column;
+          justify-content: center;
+
+          @media screen and (max-width: 767px) {
+            padding: 2.4rem;
+          }
+        }
+
+        li {
+          position: relative;
+          padding: 1.4rem 0 1.4rem 9.4rem;
+
+          &:not(:last-child) {
+            border-bottom: 1px dashed #d4d4d4;
+          }
+
+          span {
+            color: #222;
+            font-weight: 500;
+            position: absolute;
+            left: 0;
+          }
+        }
+      }
+
+      .carousel-container {
+        position: relative;
+        grid-area: map;
+
+        .dots {
+          position: absolute;
+          top: 0;
+          right: -3.4rem;
+
+          li {
+            button {
+              font-size: 1.6rem;
+              padding: 1.6rem 0.8rem;
+              width: 3.4rem;
+              color: #777;
+              background-color: transparent;
+              word-break: break-all;
+
+              &:hover,
+              &.active {
+                background-color: #eee;
+              }
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        grid-template-areas:
+          "text"
+          "map";
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+
+        .carousel-container {
+          margin-top: 4rem;
+
+          .dots {
+            display: flex;
+            top: 0;
+            left: 0;
+            right: initial;
+            transform: translateY(-100%);
+
+            li {
+              button {
+                padding: 0.8rem 1.6rem;
+                width: auto;
+                color: #777;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+.certifications {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  max-width: 122.5rem;
+  margin: 0 auto;
+
+  .carousel {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @media screen and (max-width: 991px) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .slide {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .image {
+        position: relative;
+        width: 32%;
+        height: 100%;
+        margin-right: 6rem;
+        margin-left: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        &:before {
+          float: left;
+          padding-top: calc(667 * 100% / 471);
+          content: "";
+        }
+        &::after {
+          display: block;
+          content: "";
+          clear: both;
+        }
+
+        > * {
+          box-shadow: 0px 0px 8px 3px #ccc;
+        }
+      }
+
+      .slide-content {
+        flex: 1;
+        padding-right: 5rem;
+
+        h3 {
+          white-space: pre-wrap;
+        }
+
+        p {
+          color: #888;
+          line-height: 2.8rem;
+          font-size: 1.6rem;
+          margin: 3rem 0;
+          text-align: justify;
+        }
+
+        ul {
+          li {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #344048;
+
+            svg {
+              display: inline-block;
+              margin-right: 0.4rem;
+            }
+          }
+        }
+      }
+
+      @media screen and (max-width: 991px) {
+        flex-direction: column-reverse;
+        margin: 0 auto;
+        max-width: 65rem;
+        padding: 1rem;
+
+        .image {
+          position: relative;
+          width: 100%;
+          margin: 0;
+          padding: 1rem;
+        }
+
+        .slide-content {
+          padding: 1rem;
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+
+    .dot {
+      display: inline-flex;
+      margin-top: 2.4rem;
+
+      button {
+        position: relative;
+        background-color: transparent;
+        margin: 0 0.4rem;
+        padding: 1rem 0;
+        width: 4.8rem;
+        font-size: 0;
+        cursor: pointer;
+
+        &:before,
+        &:after {
+          content: "";
+          width: 4.8rem;
+          height: 4px;
+          background-color: #e0e0e0;
+          position: absolute;
+          top: calc(50% - 1px);
+          left: 0;
+          transform-origin: left center;
+          border-radius: 2px;
+        }
+
+        &.before {
+          opacity: 0.3;
+        }
+
+        &.after {
+          transform: scaleX(0);
+        }
+      }
+
+      &.active {
+        button {
+          &:before,
+          &:after {
+            background-color: #344048;
+          }
+        }
+      }
+    }
+  }
+}

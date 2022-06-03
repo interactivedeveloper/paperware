@@ -1,0 +1,37 @@
+.feature-box {
+  display: inline-block;
+  width: 30rem;
+  height: 20rem;
+  margin: 1.6rem;
+  text-align: left;
+  vertical-align: top;
+  margin-top: 6.4rem;
+
+  .feature-box-img {
+    position: relative;
+    width: 30rem;
+    height: 10rem;
+
+    video {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  .feature-box-title {
+    color: #546673;
+    font-size: 1.6rem;
+    line-height: 3.6rem;
+    min-width: 12rem;
+  }
+
+  .feature-box-desc {
+    font-size: 1.2rem;
+    line-height: 1.74rem;
+    color: #888;
+  }
+
+  @media screen and (max-width: 590px) {
+    margin-top: 4.8rem;
+  }
+}

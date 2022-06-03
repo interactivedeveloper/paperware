@@ -1,0 +1,28 @@
+.partners {
+  max-width: 125rem;
+  margin: 0 auto;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
+  .partners-inner {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    .items-box {
+      flex: 1;
+      padding: 0 0 0 9.6rem;
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+
+      .items-box {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+}

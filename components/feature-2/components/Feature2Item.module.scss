@@ -1,0 +1,20 @@
+.tooltip-container {
+    width: 15.1rem;
+    box-shadow: inset 0 0 0 1px rgb(16 22 26 / 20%), inset 0 -1px 0 rgb(16 22 26 / 10%);
+    background-color: #fdfdfd;
+    border: 0;
+    border-radius: 0;
+    padding: 1.5rem;
+    min-width: 20rem;
+}
+
+.tooltip-title {
+    font-size: 1.7rem;
+    margin: 0;
+}
+
+.tooltip-description {
+    margin-top: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+}

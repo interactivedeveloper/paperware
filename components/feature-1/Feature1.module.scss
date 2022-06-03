@@ -1,0 +1,46 @@
+.feature-1 {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    text-align: center;
+
+    .tabs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0 auto 1.6rem;
+
+        @media screen and(max-width: 767px) {
+            max-width: 40rem;
+        }
+
+        li {
+            button {
+                font-size: 1.6rem;
+                padding: 0.8rem 1.6rem;
+                color: #777;
+                background-color: transparent;
+                cursor: pointer;
+
+                &:hover,
+                &.active {
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+
+    .carousel {
+        .slide {
+            max-width: 75rem;
+
+            p {
+                // padding-left: 2rem;
+                // padding-right: 2rem;
+                padding-left: 2.4rem;
+                padding-right: 2.4rem;
+                white-space: pre-wrap;
+            }
+        }
+    }
+}
