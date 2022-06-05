@@ -2,8 +2,11 @@ import classNames from 'classnames';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import Slider from 'react-slick';
+import Carousel, {
+  CarouselProps,
+  CarouselSlideRenderControlProps,
+} from 'nuka-carousel';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useRecoilState } from 'recoil';
 
 import useRouteScrolling from 'hooks/useRouteScrolling';
@@ -11,16 +14,16 @@ import { scrollStartedState } from 'store/store';
 import MouseScroll from './components/MouseScroll';
 import styles from './Cover.module.scss';
 
-const settings = {
-  dots: false,
-  arrows: false,
-  fade: true,
+const settings: CarouselProps = {
+  wrapAround: true,
+  animation: "fade",
   autoplay: true,
-  autoplaySpeed: 5000,
-  speed: 500,
-  // infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
+  autoplayInterval: 5000,
+  swiping: false,
+  dragging: false,
+  renderCenterLeftControls: null,
+  renderCenterRightControls: null,
+  renderBottomCenterControls: null,
 };
 
 const Cover = () => {
@@ -28,8 +31,6 @@ const Cover = () => {
   useRouteScrolling({ ref, route: "" });
   const [_, setScrollStarted] = useRecoilState(scrollStartedState);
 
-  const sliderRef = useRef<Slider>(null);
-  const [sliderInit, setSliderInit] = useState(false);
   const [slideActive, setSlideActive] = useState(0);
 
   useEffect(() => {
@@ -51,28 +52,38 @@ const Cover = () => {
     });
   }, []);
 
-  const slickGoTo = (i: number) => sliderRef.current?.slickGoTo(i);
+  const beforeSlide = (currentSlide: number, nextSlide: number) =>
+    setSlideActive(nextSlide % 5);
 
-  const beforeChange = (currentSlide: number, nextSlide: number) =>
-    setSlideActive(nextSlide);
-
-  const onSliderInit = () => setSliderInit(true);
+  const renderTopCenterControls = useCallback(
+    ({ goToSlide }: CarouselSlideRenderControlProps) => (
+      <ul className={styles["dots"]}>
+        {[1, 2, 3, 4, 5].map((i) => (
+          <li
+            key={i}
+            className={classNames(styles["dot"], {
+              [styles["active"]]: i - 1 === slideActive,
+            })}
+          >
+            <button
+              onClick={() => {
+                if (i - 1 !== slideActive) {
+                  goToSlide(i - 1);
+                }
+              }}
+            >
+              {i - 1}
+            </button>
+          </li>
+        ))}
+      </ul>
+    ),
+    [slideActive]
+  );
 
   return (
     <section id="home" className={styles["cover"]} ref={ref}>
       <div className={styles["cover-content"]}>
-        {/* <ul className={styles["dots"]}>
-          {[1, 2, 3, 4, 5].map((i) => (
-            <li
-              key={i}
-              className={classNames(styles["dot"], {
-                [styles["active"]]: i - 1 === slideActive,
-              })}
-            >
-              <button onClick={() => slickGoTo(i - 1)}>{i - 1}</button>
-            </li>
-          ))}
-        </ul> */}
         <h2>
           <Image
             src="/images/logo.svg"
@@ -85,13 +96,10 @@ const Cover = () => {
           Paperware
         </h2>
       </div>
-      <Slider
+      <Carousel
         {...settings}
-        ref={sliderRef}
-        beforeChange={beforeChange}
-        className={classNames(styles["carousel"])}
-        onInit={onSliderInit}
-        infinite={sliderInit}
+        beforeSlide={beforeSlide}
+        renderTopCenterControls={renderTopCenterControls}
       >
         {[1, 2, 3, 4, 5].map((i) => (
           <div key={i}>
@@ -108,7 +116,7 @@ const Cover = () => {
             </div>
           </div>
         ))}
-      </Slider>
+      </Carousel>
       <MouseScroll />
     </section>
   );

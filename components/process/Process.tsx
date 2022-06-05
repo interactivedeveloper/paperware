@@ -1,32 +1,46 @@
-import { useRef } from 'react';
+import dynamic from 'next/dynamic';
+import { useRef, useState } from 'react';
 
 import useRouteScrolling from 'hooks/useRouteScrolling';
 import styles from './Process.module.scss';
 
+const InquiryModal = dynamic(() => import("./components/InquiryModal"));
+
 const Process = () => {
   const ref = useRef<HTMLElement>(null);
   useRouteScrolling({ ref, route: "history" });
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const onOpenModal = () => {
+    setModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+  const onCloseModal = () => {
+    setModalOpen(false);
+    document.body.style.overflow = "";
+  };
 
   return (
-    <section ref={ref} className={styles["process"]}>
-      <div className={styles["process-inner"]}>
-        <div>
+    <>
+      <section ref={ref} className={styles["process"]}>
+        <div className={styles["process-inner"]}>
           <div className={styles["title-box"]}>
             <h3>
               Revolutionize your business
               <br />
               with PAPERWARE
             </h3>
-            <p>신청 단계부터 책임집니다!</p>
+            <p>
+              신청 단계부터 책임집니다<i>!</i>
+            </p>
             <div className={styles["apply"]}>
-              <a href="#">
-                연동신청
-                <span className={styles["process-arrow-toright"]}></span>
-              </a>
-              <span className={styles["process-dot"]}></span>
+              <button type="button" onClick={onOpenModal}>
+                <span>Papyrus 도입 문의</span>
+              </button>
             </div>
           </div>
           <div className={styles["content-box"]}>
+            <div aria-hidden></div>
             <ol>
               <li>
                 <h4>1</h4>
@@ -65,13 +79,16 @@ const Process = () => {
               </li>
             </ol>
           </div>
+          <div className={styles["footer"]}>
+            <div aria-hidden></div>
+            <p>신청부터 도입까지 7일 이내</p>
+          </div>
         </div>
-        <div className={styles["footer"]}>
-          <span className={styles["process-arrow-toright"]}></span>
-          <p>신청부터 도입까지 7일 이내</p>
-        </div>
-      </div>
-    </section>
+      </section>
+      {modalOpen && (
+        <InquiryModal isOpen={modalOpen} onRequestClose={onCloseModal} />
+      )}
+    </>
   );
 };
 

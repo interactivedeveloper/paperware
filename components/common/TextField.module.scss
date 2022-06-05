@@ -1,0 +1,40 @@
+.form-group {
+    display: flex;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--text-secondary);
+
+    &.error {
+        border-bottom: 1px solid var(--red);
+    }
+
+    label {
+        width: 10rem;
+        font-size: 1.4rem;
+        color: var(--text-secondary);
+    }
+
+    .form-wrapper {
+        flex: 1;
+    }
+
+    input,
+    textarea {
+        color: #fff;
+        background-color: transparent;
+        border: 0;
+        outline: 0;
+        width: 100%;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px var(--nav-dropdown) inset !important;
+        -webkit-text-fill-color: #fff !important;
+    }
+
+    textarea {
+        resize: none;
+    }
+}

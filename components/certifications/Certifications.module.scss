@@ -1,16 +1,26 @@
 .certifications {
   padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-bottom: 15rem;
   max-width: 122.5rem;
   margin: 0 auto;
 
-  .carousel {
+  :global(.slider-container) {
     padding-left: 2rem;
     padding-right: 2rem;
 
     @media screen and (max-width: 991px) {
       padding-left: 1rem;
       padding-right: 1rem;
+    }
+  }
+
+  :global(.slider-control-bottomcenter) {
+    bottom: initial !important;
+  }
+
+  .carousel {
+    :global(.slide) {
+      pointer-events: none;
     }
 
     .slide {
@@ -52,7 +62,7 @@
         }
 
         p {
-          color: #888;
+          color: var(--text-secondary);
           line-height: 2.8rem;
           font-size: 1.6rem;
           margin: 3rem 0;
@@ -118,7 +128,7 @@
           content: "";
           width: 4.8rem;
           height: 4px;
-          background-color: #e0e0e0;
+          background-color: var(--footer-text);
           position: absolute;
           top: calc(50% - 1px);
           left: 0;
@@ -139,7 +149,7 @@
         button {
           &:before,
           &:after {
-            background-color: #344048;
+            background-color: var(--footer);
           }
         }
       }

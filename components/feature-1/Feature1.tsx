@@ -1,8 +1,11 @@
 import classNames from 'classnames';
 import { gsap } from 'gsap';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
-import Slider from 'react-slick';
+import Carousel, {
+  CarouselProps,
+  CarouselSlideRenderControlProps,
+} from 'nuka-carousel';
+import { useCallback, useRef, useState } from 'react';
 
 import styles from './Feature1.module.scss';
 
@@ -63,34 +66,30 @@ const tabs = [
   },
 ];
 
-const settings = {
-  dots: false,
-  arrows: false,
-  speed: 500,
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
+const settings: CarouselProps = {
+  wrapAround: true,
+  autoplay: true,
+  autoplayInterval: 5000,
+  renderCenterLeftControls: null,
+  renderCenterRightControls: null,
+  renderBottomCenterControls: null,
 };
 
 const Feature1 = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const sliderRef = useRef<Slider>(null);
   const [slideActive, setSlideActive] = useState(0);
 
-  const slickGoTo = (i: number) => sliderRef.current?.slickGoTo(i);
-
-  const beforeChange = (currentSlide: number, nextSlide: number) => {
+  const beforeSlide = (currentSlide: number, nextSlide: number) => {
     gsap.fromTo(
       titleRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 0.5 }
     );
-    setSlideActive(nextSlide);
+    setSlideActive(nextSlide % tabs.length);
   };
 
-  return (
-    <section className={styles["feature-1"]}>
-      <h3 ref={titleRef}>{tabs[slideActive].title}</h3>
+  const renderTopCenterControls = useCallback(
+    ({ goToSlide }: CarouselSlideRenderControlProps) => (
       <ul className={styles["tabs"]}>
         {tabs.map(({ label }, i) => (
           <li key={label}>
@@ -98,18 +97,30 @@ const Feature1 = () => {
               className={classNames({
                 [styles["active"]]: i === slideActive,
               })}
-              onClick={() => slickGoTo(i)}
+              onClick={() => {
+                if (i !== slideActive) {
+                  goToSlide(i);
+                }
+              }}
             >
               {label}
             </button>
           </li>
         ))}
       </ul>
-      <Slider
+    ),
+    [slideActive]
+  );
+
+  return (
+    <section className={styles["feature-1"]}>
+      <h3 ref={titleRef}>{tabs[slideActive].title}</h3>
+      <Carousel
         {...settings}
-        ref={sliderRef}
-        beforeChange={beforeChange}
+        beforeSlide={beforeSlide}
         className={styles["carousel"]}
+        renderTopCenterControls={renderTopCenterControls}
+        {...{ dragThreshold: 0.1 }}
       >
         {tabs.map(({ label, description }, i) => (
           <div key={label} className={styles["slide"]}>
@@ -124,7 +135,7 @@ const Feature1 = () => {
             />
           </div>
         ))}
-      </Slider>
+      </Carousel>
     </section>
   );
 };

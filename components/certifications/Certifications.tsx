@@ -1,12 +1,15 @@
-import { faCertificate } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import classNames from "classnames";
-import Image from "next/image";
-import { useRef, useState } from "react";
-import Slider from "react-slick";
+import { faCertificate } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames';
+import Image from 'next/image';
+import Carousel, {
+  CarouselProps,
+  CarouselSlideRenderControlProps,
+} from 'nuka-carousel';
+import { useCallback, useRef, useState } from 'react';
 
-import useRouteScrolling from "hooks/useRouteScrolling";
-import styles from "./Certifications.module.scss";
+import useRouteScrolling from 'hooks/useRouteScrolling';
+import styles from './Certifications.module.scss';
 
 const slides = [
   {
@@ -55,33 +58,57 @@ const slides = [
   },
 ];
 
-const settings = {
-  dots: false,
-  arrows: false,
-  speed: 500,
-  infinite: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
+const settings: CarouselProps = {
+  wrapAround: true,
+  autoplay: true,
+  autoplayInterval: 5000,
+  renderCenterLeftControls: null,
+  renderCenterRightControls: null,
 };
 
 const Certifications = () => {
   const ref = useRef<HTMLElement>(null);
   useRouteScrolling({ ref, route: "certifications" });
 
-  const sliderRef = useRef<Slider>(null);
   const [slideActive, setSlideActive] = useState(0);
-  const slickGoTo = (i: number) => sliderRef.current?.slickGoTo(i);
 
-  const beforeChange = (currentSlide: number, nextSlide: number) =>
-    setSlideActive(nextSlide);
+  const beforeSlide = (currentSlide: number, nextSlide: number) =>
+    setSlideActive(nextSlide % slides.length);
+
+  const renderBottomCenterControls = useCallback(
+    ({ goToSlide }: CarouselSlideRenderControlProps) => (
+      <ul className={styles["dots"]}>
+        {slides.map(({ title }, i) => (
+          <li
+            key={title}
+            className={classNames(styles["dot"], {
+              [styles["active"]]: i === slideActive,
+            })}
+          >
+            <button
+              onClick={() => {
+                if (i !== slideActive) {
+                  goToSlide(i);
+                }
+              }}
+            >
+              {i}
+            </button>
+          </li>
+        ))}
+      </ul>
+    ),
+    [slideActive]
+  );
 
   return (
     <section ref={ref} id="certifications" className={styles["certifications"]}>
-      <Slider
+      <Carousel
         {...settings}
-        ref={sliderRef}
-        beforeChange={beforeChange}
+        beforeSlide={beforeSlide}
         className={styles["carousel"]}
+        renderBottomCenterControls={renderBottomCenterControls}
+        {...{ dragThreshold: 0.1 }}
       >
         {slides.map(({ src, title, description, bullets }, i) => (
           <div key={title}>
@@ -105,19 +132,7 @@ const Certifications = () => {
             </div>
           </div>
         ))}
-      </Slider>
-      <ul className={styles["dots"]}>
-        {slides.map(({ title }, i) => (
-          <li
-            key={title}
-            className={classNames(styles["dot"], {
-              [styles["active"]]: i === slideActive,
-            })}
-          >
-            <button onClick={() => slickGoTo(i)}>{i}</button>
-          </li>
-        ))}
-      </ul>
+      </Carousel>
     </section>
   );
 };

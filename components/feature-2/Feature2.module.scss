@@ -1,5 +1,5 @@
 .feature-2 {
-  background-color: #efefef;
+  background-color: var(--bg-secondary);
 
   .feature-2-inner {
     display: flex;
@@ -59,6 +59,10 @@
         }
 
         :global(#step-m-#{$i}-container) {
+          :global(#step-m-#{$i}) {
+            will-change: transform, opacity;
+          }
+
           &:hover {
             filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
             -webkit-filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));

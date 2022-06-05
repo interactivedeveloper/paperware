@@ -18,29 +18,42 @@
             button {
                 font-size: 1.6rem;
                 padding: 0.8rem 1.6rem;
-                color: #777;
+                color: var(--tab-text);
                 background-color: transparent;
                 cursor: pointer;
 
                 &:hover,
                 &.active {
-                    background-color: #eee;
+                    background-color: var(--tab-hover);
                 }
             }
         }
     }
 
     .carousel {
-        .slide {
-            max-width: 75rem;
+        max-width: 75rem;
+        margin: auto;
+        padding-top: 5rem;
 
+        @media screen and(max-width: 767px) {
+            padding-top: 9rem;
+        }
+
+        :global(.slide) {
+            pointer-events: none;
+        }
+
+        .slide {
             p {
-                // padding-left: 2rem;
-                // padding-right: 2rem;
+                text-align: center;
                 padding-left: 2.4rem;
                 padding-right: 2.4rem;
                 white-space: pre-wrap;
             }
         }
+    }
+
+    :global(.slider-control-topcenter) {
+        width: 100%;
     }
 }

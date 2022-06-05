@@ -30,7 +30,7 @@
       max-width: 80rem;
       margin: 0 auto;
       text-align: justify;
-      color: #888;
+      color: var(--text-secondary);
       line-height: 2.8rem;
 
       &:last-of-type {
@@ -93,13 +93,14 @@
               font-size: 1.6rem;
               padding: 1.6rem 0.8rem;
               width: 3.4rem;
-              color: #777;
+              color: var(--tab-text);
               background-color: transparent;
               word-break: break-all;
+              cursor: pointer;
 
               &:hover,
               &.active {
-                background-color: #eee;
+                background-color: var(--tab-hover);
               }
             }
           }
@@ -127,7 +128,6 @@
               button {
                 padding: 0.8rem 1.6rem;
                 width: auto;
-                color: #777;
               }
             }
           }

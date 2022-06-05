@@ -1,0 +1,108 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--footer);
+    z-index: 100000001;
+
+    @media screen and (min-width: 526px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.inquiry-modal {
+    position: relative;
+    background-color: var(--nav-dropdown);
+    color: #fff;
+    padding: 12rem 2rem 6rem;
+    width: 100rem;
+    max-width: 90vw;
+    outline: 0;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 0.3s;
+
+    &:global(.ReactModal__Content--after-open) {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    @media screen and (min-width: 526px) {
+        border-radius: 0.4rem;
+    }
+
+    @media screen and (max-width: 525px) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        max-width: none;
+        overflow: auto;
+    }
+
+    h3 {
+        color: #fff;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        max-width: 50rem;
+        margin: auto;
+
+        > div {
+            margin-top: 4rem;
+        }
+
+        button {
+            color: #fff;
+            margin-top: 4.8rem;
+            padding: 1.8rem 3rem;
+            align-self: center;
+            outline: 0;
+            background-color: #191919;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+
+    .close {
+        position: absolute;
+        display: inline-flex;
+        right: 2rem;
+        top: 2rem;
+        width: 2.8rem;
+        height: 2.8rem;
+        font-size: 0;
+        margin: 0;
+        border: 0;
+        outline: 0;
+        background-color: transparent;
+        cursor: pointer;
+    }
+    .close:hover {
+        opacity: 1;
+    }
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        content: " ";
+        height: 2.8rem;
+        width: 2px;
+        background-color: #fff;
+    }
+    .close:before {
+        transform: rotate(45deg);
+    }
+    .close:after {
+        transform: rotate(-45deg);
+    }
+}

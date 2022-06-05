@@ -28,7 +28,7 @@
   .feature-box-desc {
     font-size: 1.2rem;
     line-height: 1.74rem;
-    color: #888;
+    color: var(--text-secondary);
   }
 
   @media screen and (max-width: 590px) {

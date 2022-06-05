@@ -1,6 +1,6 @@
 .footer {
-    background-color: #29292a;
-    color: #c5c5c5;
+    background-color: var(--footer);
+    color: var(--footer-text);
     padding: 5rem 0;
 
     .footer-inner {
@@ -14,12 +14,12 @@
     }
 
     .footer-upper {
-        border-bottom: 1px solid #9f9f9f;
+        border-bottom: 1px solid var(--text-secondary);
         padding-bottom: 3.5rem;
 
         h3,
         a {
-            color: #c5c5c5;
+            color: var(--footer-text);
         }
 
         ul {
@@ -42,7 +42,7 @@
             margin-top: 0.3rem;
 
             a {
-                color: #c5c5c5;
+                color: var(--footer-text);
                 text-decoration: underline;
 
                 &:first-child {
