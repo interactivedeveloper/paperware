@@ -1,37 +1,41 @@
 .introduction {
-    padding: 20rem 0;
-    background-color: var(--bg-secondary);
+  padding: 20rem 0;
+  background-color: var(--bg-secondary);
+
+  p {
+    color: var(--text-primary);
+    text-align: center;
+    font-weight: 500;
+
+    &:first-child {
+      font-size: 3.2rem;
+      line-height: 1.6;
+      margin-bottom: 5rem;
+
+      @media screen and (max-width: 991px) {
+        font-size: 3rem;
+      }
+    }
+
+    &:last-child {
+      display: none;
+      font-size: 2.4rem;
+      line-height: 1.5;
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 11rem 0;
 
     p {
-        color: var(--text-primary);
-        text-align: center;
-        font-weight: 500;
+      &:first-child {
+        display: none;
+      }
 
-        &:first-child {
-            font-size: 3.2rem;
-            line-height: 1.6;
-            margin-bottom: 5rem;
-        }
-
-        &:last-child {
-            display: none;
-            font-size: 2.4rem;
-            line-height: 1.5;
-            margin-bottom: 3.2rem;
-        }
+      &:last-child {
+        display: block;
+      }
     }
-
-    @media screen and (max-width: 767px) {
-        padding: 11rem 0;
-
-        p {
-            &:first-child {
-                display: none;
-            }
-
-            &:last-child {
-                display: block;
-            }
-        }
-    }
+  }
 }

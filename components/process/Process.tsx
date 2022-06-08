@@ -1,8 +1,8 @@
-import dynamic from 'next/dynamic';
-import { useRef, useState } from 'react';
+import dynamic from "next/dynamic";
+import { useEffect, useRef, useState } from "react";
 
-import useRouteScrolling from 'hooks/useRouteScrolling';
-import styles from './Process.module.scss';
+import useRouteScrolling from "hooks/useRouteScrolling";
+import styles from "./Process.module.scss";
 
 const InquiryModal = dynamic(() => import("./components/InquiryModal"));
 
@@ -10,6 +10,12 @@ const Process = () => {
   const ref = useRef<HTMLElement>(null);
   useRouteScrolling({ ref, route: "history" });
   const [modalOpen, setModalOpen] = useState(false);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     import("./components/InquiryModal");
+  //   }, 15000);
+  // }, []);
 
   const onOpenModal = () => {
     setModalOpen(true);

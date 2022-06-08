@@ -17,7 +17,7 @@
     font-size: 0;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 992px) {
     nav {
       margin-right: 1.6rem;
 
@@ -65,8 +65,7 @@
         display: block;
         position: absolute;
         height: 2px;
-        transform: rotate(0deg);
-        will-change: transform, background, opacity, top, left, width;
+        transform: rotate(0deg) translateZ(0);
         width: 100%;
         top: 3px;
         left: 0;
@@ -74,8 +73,10 @@
         margin: auto;
         overflow: hidden;
         border-radius: 2px;
-        transition: transform 0.3s ease-in-out 0s, background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
-          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s, width 0.3s ease-in-out 0s;
+        transition: transform 0.3s ease-in-out 0s,
+          background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
+          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s,
+          width 0.3s ease-in-out 0s;
       }
 
       .middle-1 {
@@ -84,15 +85,16 @@
         left: 0;
         height: 2px;
         opacity: 1;
-        transform: rotate(0deg);
-        will-change: transform, background, opacity, top, left, width;
+        transform: rotate(0deg) translateZ(0);
         width: 100%;
         top: 11px;
         margin: auto;
         overflow: hidden;
         border-radius: 2px;
-        transition: transform 0.3s ease-in-out 0s, background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
-          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s, width 0.3s ease-in-out 0s;
+        transition: transform 0.3s ease-in-out 0s,
+          background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
+          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s,
+          width 0.3s ease-in-out 0s;
       }
 
       .middle-2 {
@@ -101,15 +103,16 @@
         left: 0;
         height: 2px;
         opacity: 1;
-        transform: rotate(0deg);
-        will-change: transform, background, opacity, top, left, width;
+        transform: rotate(0deg) translateZ(0);
         width: 100%;
         top: 11px;
         margin: auto;
         overflow: hidden;
         border-radius: 2px;
-        transition: transform 0.3s ease-in-out 0s, background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
-          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s, width 0.3s ease-in-out 0s;
+        transition: transform 0.3s ease-in-out 0s,
+          background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
+          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s,
+          width 0.3s ease-in-out 0s;
       }
 
       .bottom {
@@ -117,7 +120,6 @@
         position: absolute;
         height: 2px;
         transform: rotate(0deg);
-        will-change: transform, background, opacity, top, left, width;
         width: 100%;
         top: 19px;
         left: 0;
@@ -125,8 +127,10 @@
         margin: auto;
         overflow: hidden;
         border-radius: 2px;
-        transition: transform 0.3s ease-in-out 0s, background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
-          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s, width 0.3s ease-in-out 0s;
+        transition: transform 0.3s ease-in-out 0s,
+          background 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s,
+          top 0.3s ease-in-out 0s, left 0.3s ease-in-out 0s,
+          width 0.3s ease-in-out 0s;
       }
     }
   }
@@ -168,7 +172,7 @@
     }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 991px) {
     h1 {
       padding-left: 2rem;
     }

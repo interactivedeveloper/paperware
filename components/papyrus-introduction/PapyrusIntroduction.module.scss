@@ -11,7 +11,6 @@
         margin: auto;
 
         .feature-left {
-            position: relative;
             width: 48%;
             padding-left: 2rem;
             padding-right: 5rem;
@@ -47,6 +46,23 @@
         .feature-right {
             width: 52%;
             padding-right: 2rem;
+
+            .mobile-dashboard {
+                display: none;
+            }
+
+            @media screen and (max-width: 525px) {
+                video {
+                    display: none;
+                }
+
+                .mobile-dashboard {
+                    display: block;
+                    box-shadow: 0px 0px 8px 3px #ccc;
+                    border-radius: 0.4rem;
+                    overflow: hidden;
+                }
+            }
 
             video {
                 width: 100%;

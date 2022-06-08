@@ -1059,6 +1059,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function middleware(req, ev) {
     const currentEnv = "production";
+    // http://paperware.kr 를 https://paperware.kr로 리다이렉트 시 사용
     if (currentEnv === "production" && req.headers.get("x-forwarded-proto") !== "https") {
         return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.redirect(`https://paperware.kr${req.nextUrl.pathname}`, 301);
     }

@@ -62,7 +62,12 @@ const Header = () => {
           </a>
         </Link>
       </h1>
-      <button className={styles["nav-toggle"]} onClick={toggleNav}>
+      <button
+        type="button"
+        aria-label="nav-button"
+        className={styles["nav-toggle"]}
+        onClick={toggleNav}
+      >
         <i>
           <div className={styles["top"]}></div>
           <div className={styles["middle-1"]}></div>
@@ -91,10 +96,22 @@ const Header = () => {
             </li>
           ))}
           <li>
-            <a href="http://papyrus.paperware.kr/">Papyrus</a>
+            <a
+              href="http://papyrus.paperware.kr/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Papyrus
+            </a>
           </li>
           <li>
-            <a href="https://paperware.oopy.io/">Apply</a>
+            <a
+              href="https://paperware.oopy.io/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Apply
+            </a>
           </li>
         </ul>
       </nav>

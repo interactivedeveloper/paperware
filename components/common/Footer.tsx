@@ -1,57 +1,11 @@
 import { faEnvelope, faPhoneSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
-// import { useRecoilState } from "recoil";
-// import { channelIOBootedState } from "store/store";
 import styles from './Footer.module.scss';
 
 const Footer = () => {
   const ref = useRef<HTMLElement>(null);
-  // const [channelIOBooted] = useRecoilState(channelIOBootedState);
-
-  // useEffect(() => {
-  //   const channelButtonEl = document.querySelector<HTMLElement>(
-  //     "#ch-plugin-core >div:last-child"
-  //   )!;
-
-  //   const toggleChannelIOButtonPosition = () => {
-  //     ScrollTrigger.create({
-  //       trigger: ref.current,
-  //       start: "top bottom",
-  //       end: "bottom bottom",
-  //       scrub: true,
-  //       toggleActions: "play none none reset",
-  //       onRefresh: () => {
-  //         channelButtonEl.classList.remove("is-bottom");
-  //         channelButtonEl.style.top = "";
-  //       },
-  //       onEnter: () => {
-  //         channelButtonEl.classList.add("is-bottom");
-
-  //         const footerYPosition =
-  //           ref.current!.getBoundingClientRect().top +
-  //           window.scrollY -
-  //           channelButtonEl.getBoundingClientRect().height -
-  //           24 +
-  //           "px";
-
-  //         channelButtonEl.style.top = footerYPosition;
-  //       },
-  //       onLeaveBack: () => {
-  //         channelButtonEl.classList.remove("is-bottom");
-  //         channelButtonEl.style.top = "";
-  //       },
-  //     });
-  //   };
-
-  //   if (channelIOBooted) {
-  //     setTimeout(() => {
-  //       // toggleChannelIOButtonPosition();
-  //     }, 1000);
-  //   }
-  // }, [channelIOBooted, ref]);
 
   return (
     <footer ref={ref} className={styles["footer"]}>

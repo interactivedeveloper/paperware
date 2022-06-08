@@ -1,10 +1,11 @@
-import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import dynamic from 'next/dynamic';
+import { Suspense, useEffect, useRef, useState } from 'react';
 
-import styles from "./Feature2.module.scss";
+import styles from './Feature2.module.scss';
 
-const Steps = dynamic(() => import("./components/Steps"));
-const StepsM = dynamic(() => import("./components/StepsM"));
+// svg image 레이지 로드
+const Steps = dynamic(() => import("./components/Steps"), { suspense: true });
+const StepsM = dynamic(() => import("./components/StepsM"), { suspense: true });
 
 const items = [
   {
@@ -82,8 +83,10 @@ const Feature2 = () => {
   return (
     <section ref={ref} className={styles["feature-2"]}>
       <div className={styles["feature-2-inner"]}>
-        {isSmallWidth === false && <Steps items={items} />}
-        {isSmallWidth === true && <StepsM items={items} />}
+        <Suspense>
+          {isSmallWidth === false && <Steps items={items} />}
+          {isSmallWidth === true && <StepsM items={items} />}
+        </Suspense>
       </div>
     </section>
   );

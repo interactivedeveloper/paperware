@@ -1,7 +1,7 @@
-import '../styles/globals.scss';
-import '@fortawesome/fontawesome-svg-core/styles.css';
+import "../styles/globals.scss";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
-import { config, library } from '@fortawesome/fontawesome-svg-core';
+import { config, library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCertificate,
   faCubes,
@@ -10,10 +10,10 @@ import {
   faPhoneSquare,
   faRotate,
   faShoppingCart,
-} from '@fortawesome/free-solid-svg-icons';
-import { RecoilRoot } from 'recoil';
+} from "@fortawesome/free-solid-svg-icons";
+import { RecoilRoot } from "recoil";
 
-import Layout from 'components/common/Layout';
+import Layout from "components/common/Layout";
 
 library.add(
   faShoppingCart,

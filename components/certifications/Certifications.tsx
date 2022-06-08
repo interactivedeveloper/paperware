@@ -13,7 +13,7 @@ import styles from './Certifications.module.scss';
 
 const slides = [
   {
-    src: "/images/patent1.jpg",
+    src: "/images/patent1.webp?jpg",
     title: "속도, 편의성, 보안\n모두 제공하는 자체 기술력",
     description:
       "열락의 그러므로 보이는 인간이 청춘 어디 끓는다. 바이며, 불러 인생을 원질이 피에 것이다. 찾아 원질이 그러므로 목숨을 기관과 가는 수 하였으며, 품으며, 아니다. 천고에 길을 위하여 것이다. 보라, 대중을 그들에게 속잎나고, 때문이다. 같이 우리 영원히 피고, 뿐이다. 품었기 보내는 그들에게 인생에 심장의 얼마나 더운지라 때문이다. 아니더면, 예가 얼마나 새 크고 하였으며, 것이다. 부패를 꽃 뜨고, 가치를 온갖 품었기 말이다.",
@@ -24,7 +24,7 @@ const slides = [
     ],
   },
   {
-    src: "/images/patent2.jpg",
+    src: "/images/patent2.webp?jpg",
     title: "속도, 편의성, 보안\n모두 제공하는 자체 기술력2",
     description:
       "열락의 그러므로 보이는 인간이 청춘 어디 끓는다. 바이며, 불러 인생을 원질이 피에 것이다. 찾아 원질이 그러므로 목숨을 기관과 가는 수 하였으며, 품으며, 아니다. 천고에 길을 위하여 것이다. 보라, 대중을 그들에게 속잎나고, 때문이다. 같이 우리 영원히 피고, 뿐이다. 품었기 보내는 그들에게 인생에 심장의 얼마나 더운지라 때문이다. 아니더면, 예가 얼마나 새 크고 하였으며, 것이다. 부패를 꽃 뜨고, 가치를 온갖 품었기 말이다.",
@@ -35,7 +35,7 @@ const slides = [
     ],
   },
   {
-    src: "/images/patent3.jpg",
+    src: "/images/patent3.webp?jpg",
     title: "속도, 편의성, 보안\n모두 제공하는 자체 기술력3",
     description:
       "열락의 그러므로 보이는 인간이 청춘 어디 끓는다. 바이며, 불러 인생을 원질이 피에 것이다. 찾아 원질이 그러므로 목숨을 기관과 가는 수 하였으며, 품으며, 아니다. 천고에 길을 위하여 것이다. 보라, 대중을 그들에게 속잎나고, 때문이다. 같이 우리 영원히 피고, 뿐이다. 품었기 보내는 그들에게 인생에 심장의 얼마나 더운지라 때문이다. 아니더면, 예가 얼마나 새 크고 하였으며, 것이다. 부패를 꽃 뜨고, 가치를 온갖 품었기 말이다.",
@@ -46,7 +46,7 @@ const slides = [
     ],
   },
   {
-    src: "/images/patent4.jpg",
+    src: "/images/patent4.webp?jpg",
     title: "속도, 편의성, 보안\n모두 제공하는 자체 기술력4",
     description:
       "열락의 그러므로 보이는 인간이 청춘 어디 끓는다. 바이며, 불러 인생을 원질이 피에 것이다. 찾아 원질이 그러므로 목숨을 기관과 가는 수 하였으며, 품으며, 아니다. 천고에 길을 위하여 것이다. 보라, 대중을 그들에게 속잎나고, 때문이다. 같이 우리 영원히 피고, 뿐이다. 품었기 보내는 그들에게 인생에 심장의 얼마나 더운지라 때문이다. 아니더면, 예가 얼마나 새 크고 하였으며, 것이다. 부패를 꽃 뜨고, 가치를 온갖 품었기 말이다.",
@@ -72,8 +72,10 @@ const Certifications = () => {
 
   const [slideActive, setSlideActive] = useState(0);
 
-  const beforeSlide = (currentSlide: number, nextSlide: number) =>
-    setSlideActive(nextSlide % slides.length);
+  const beforeSlide = useCallback(
+    (currentSlide: number, nextSlide: number) => setSlideActive(nextSlide % 5),
+    []
+  );
 
   const renderBottomCenterControls = useCallback(
     ({ goToSlide }: CarouselSlideRenderControlProps) => (

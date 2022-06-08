@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Image from "next/image";
-import Script from "next/script";
-import { useEffect, useRef, useState } from "react";
+import classNames from 'classnames';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import Image from 'next/image';
+import Script from 'next/script';
+import { useEffect, useRef, useState } from 'react';
 
-import useRouteScrolling from "hooks/useRouteScrolling";
-import styles from "./About.module.scss";
+import useRouteScrolling from 'hooks/useRouteScrolling';
+import styles from './About.module.scss';
 
 const tabs = ["본사", "서울"];
 
@@ -16,10 +16,12 @@ const About = () => {
   const [apiLoaded, setApiLoaded] = useState(false);
   const [mapLoadDeferred, setMapLoadDeferred] = useState(false);
 
+  // about section 진입시 네이버 지도 레이지 로드
   useEffect(() => {
     ScrollTrigger.create({
       trigger: ref.current,
       start: "top bottom",
+      once: true,
       onEnter: loadMap,
     });
   }, []);
@@ -40,7 +42,10 @@ const About = () => {
     const mapOptions = {
       zoom: 17,
       zoomControl: true,
-      draggable: true,
+      draggable:
+        !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        ),
       pinchZoom: true,
       scrollWheel: true,
       keyboardShortcuts: true,

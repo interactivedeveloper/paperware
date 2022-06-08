@@ -82,9 +82,7 @@ const TextField = ({ className , label , name , required , textarea , type ="tex
             field.onChange(e);
         } else {
             const { value  } = e.target;
-            if (value.match(numericRegex)) {
-                field.onChange(+value.replace(numericRegex, ""));
-            } else {
+            if (!value.match(numericRegex)) {
                 field.onChange(value);
             }
         }

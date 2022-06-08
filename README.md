@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## How to run
 
-## Getting Started
+npm install 또는 yarn install<br />
+npm run dev 또는 yarn dev<br />
 
-First, run the development server:
+## How to test production environment
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+npm run build 또는 yarn build<br />
+npm run start 또는 yarn start<br />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to host nextjs on gabia
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+준비사항 : github 저장소가 필요하며 컨테이너와 미리 연결해 두셔야 합니다. <br />
+다음의 명령어를 실행하시기 바랍니다.<br />
+npm install<br />
+npm run build<br />
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 빌드 폴더를 포함하여 프로젝트를 깃저장소에 푸쉬하십시오.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+서버에 저장소를 클론하십시오.(개인 저장소를 사용하실 경우 ssh key를 추가하셔야 합니다.)<br />
+다음의 명령어를 실행하시기 바랍니다.<br />
+pm2 start npm --name "next-js" -- start<br />
 
-## Learn More
+## How to update your website
 
-To learn more about Next.js, take a look at the following resources:
+프로젝트를 컴퓨터에 빌드하고 서버에 push 그리고 pull 하십시오. pull 시 웹사이트가 즉시 interruption 없이 업데이트 됩니다.<br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## About apis keys
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+모든 api key(GA, 네이버 지도, 채널톡,emailjs)는 .env 파일에 위치해 있으며 GA와 네이버 지도는 개인 계정으로 변경하셔야 합니다.<br />
 
-## Deploy on Vercel
+Find naver map key here: https://www.ncloud.com/product/applicationService/maps<br/>
+Find emailjs keys here: https://www.emailjs.com/
+( emailjs 계정은 제가 생성해 두었습니다. papyrusnoreply@gmail.com / same password as gabia)<br/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## About next.js
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+React와 Next.js의 주요 코딩 차이점은 서버에서의 api 호출입니다. 이번 프로젝트에는 api 호출이 없어 next.js를 이해하기 위한 특정 코드가 많지는 않습니다.<br />
+
+### 주목할 만한 주요 차이점은 다음과 같습니다.
+
+#### 스타일링 :
+
+next.js에는 여러 스타일링 옵션이 있는데 next.js에서 가장 일반적인 CSS를<br />
+선택하여 사용하였습니다. module.scss를 object로 ts 파일로 import하셔야 하며 스타일이 component-level scss인점 참고 부탁드립니다.<br />
+Learn more: https://nextjs.org/docs/basic-features/built-in-css-support<br />
+
+#### 라우팅 :
+
+next.js 라우팅은 페이지 폴더 스트럭쳐에 기반을 두고 있습니다. 각각의 .ts 파일은 (front의 underscore 파일 제외) 라우트와 상응하며.<br/>
+papyrus 페이지는 page/index.tsx입니다.<br/>
+Learn more: https://nextjs.org/docs/routing/introduction<br/>
+Special files:<br/>
+\_app.tsx: react app file<br/>
+\_document.tsx: React에서 public/index.html와 비슷합니다.<br/>
+\_middleware.tsx: middleware가 필요하시다면 활용 가능합니다.

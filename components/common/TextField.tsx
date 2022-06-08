@@ -58,9 +58,7 @@ const TextField = ({
       field.onChange(e);
     } else {
       const { value } = e.target;
-      if (value.match(numericRegex)) {
-        field.onChange(+value.replace(numericRegex, ""));
-      } else {
+      if (!value.match(numericRegex)) {
         field.onChange(value);
       }
     }

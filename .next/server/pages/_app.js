@@ -56,51 +56,10 @@ module.exports = {
 
 
 
-// import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-// import { useRecoilState } from "recoil";
-// import { channelIOBootedState } from "store/store";
 
 const Footer = ()=>{
     const ref = (0,react__WEBPACK_IMPORTED_MODULE_3__.useRef)(null);
-    // const [channelIOBooted] = useRecoilState(channelIOBootedState);
-    // useEffect(() => {
-    //   const channelButtonEl = document.querySelector<HTMLElement>(
-    //     "#ch-plugin-core >div:last-child"
-    //   )!;
-    //   const toggleChannelIOButtonPosition = () => {
-    //     ScrollTrigger.create({
-    //       trigger: ref.current,
-    //       start: "top bottom",
-    //       end: "bottom bottom",
-    //       scrub: true,
-    //       toggleActions: "play none none reset",
-    //       onRefresh: () => {
-    //         channelButtonEl.classList.remove("is-bottom");
-    //         channelButtonEl.style.top = "";
-    //       },
-    //       onEnter: () => {
-    //         channelButtonEl.classList.add("is-bottom");
-    //         const footerYPosition =
-    //           ref.current!.getBoundingClientRect().top +
-    //           window.scrollY -
-    //           channelButtonEl.getBoundingClientRect().height -
-    //           24 +
-    //           "px";
-    //         channelButtonEl.style.top = footerYPosition;
-    //       },
-    //       onLeaveBack: () => {
-    //         channelButtonEl.classList.remove("is-bottom");
-    //         channelButtonEl.style.top = "";
-    //       },
-    //     });
-    //   };
-    //   if (channelIOBooted) {
-    //     setTimeout(() => {
-    //       // toggleChannelIOButtonPosition();
-    //     }, 1000);
-    //   }
-    // }, [channelIOBooted, ref]);
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("footer", {
         ref: ref,
         className: (_Footer_module_scss__WEBPACK_IMPORTED_MODULE_4___default().footer),
@@ -298,6 +257,8 @@ const Header = ()=>{
                 })
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
+                type: "button",
+                "aria-label": "nav-button",
                 className: (_Header_module_scss__WEBPACK_IMPORTED_MODULE_8___default()["nav-toggle"]),
                 onClick: toggleNav,
                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("i", {
@@ -341,12 +302,16 @@ const Header = ()=>{
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                 href: "http://papyrus.paperware.kr/",
+                                target: "_blank",
+                                rel: "noreferrer",
                                 children: "Papyrus"
                             })
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                 href: "https://paperware.oopy.io/",
+                                target: "_blank",
+                                rel: "noreferrer",
                                 children: "Apply"
                             })
                         })
@@ -389,15 +354,16 @@ _Header__WEBPACK_IMPORTED_MODULE_6__ = (__webpack_async_dependencies__.then ? (a
 
 
 
+// import ChannelIO from './ChannelIO';
 
 
-const ChannelIO = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(()=>__webpack_require__.e(/* import() */ 948).then(__webpack_require__.bind(__webpack_require__, 1948))
-, {
+const ChannelIO = next_dynamic__WEBPACK_IMPORTED_MODULE_1___default()(null, {
     loadableGenerated: {
         modules: [
             "../components/common/Layout.tsx -> " + "../common/ChannelIO"
         ]
-    }
+    },
+    ssr: false
 });
 const Layout = ({ children  })=>{
     const [scrollStarted] = (0,recoil__WEBPACK_IMPORTED_MODULE_3__.useRecoilState)(store_store__WEBPACK_IMPORTED_MODULE_4__/* .scrollStartedState */ .rD);
@@ -512,14 +478,6 @@ module.exports = require("@fortawesome/react-fontawesome");
 
 "use strict";
 module.exports = require("classnames");
-
-/***/ }),
-
-/***/ 4965:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("gsap/dist/ScrollTrigger");
 
 /***/ }),
 
@@ -696,14 +654,6 @@ module.exports = require("next/head");
 
 "use strict";
 module.exports = require("react");
-
-/***/ }),
-
-/***/ 1285:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("react-channel-plugin");
 
 /***/ }),
 

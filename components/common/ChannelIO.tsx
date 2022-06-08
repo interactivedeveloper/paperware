@@ -13,7 +13,6 @@ const ChannelIOHook = () => {
     ScrollTrigger.create({
       trigger: document.querySelector("#home"),
       start: "bottom +=1",
-      toggleActions: "play none none reverse",
       onEnter: show,
       onLeaveBack: hide,
     });
@@ -29,9 +28,10 @@ const ChannelIO = () => {
 
   return (
     <Component
-      pluginKey="4901c2a2-59db-423c-a135-bf76f7b5bff6"
+      pluginKey={process.env.NEXT_PUBLIC_CHANNEL_PLUGIN_KEY}
       language="ko"
-      autoBoot
+      // ios에서 autoboot 딜레이
+      autoBoot={!/iPhone|iPod|iPad/i.test(navigator.userAgent)}
       hideChannelButtonOnBoot
       onBoot={() => setChannelIOBooted(true)}
       verbose={false}

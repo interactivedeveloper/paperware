@@ -87,6 +87,16 @@ const PapyrusIntroduction = () => {
             controls={false}
             playsInline
           />
+          <div className={styles["mobile-dashboard"]}>
+            <Image
+              src={`/images/dashboard.webp?jpg`}
+              layout="responsive"
+              alt=""
+              loading="lazy"
+              width={1000}
+              height={563}
+            />
+          </div>
         </div>
       </div>
     </section>

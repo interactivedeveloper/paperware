@@ -1,59 +1,59 @@
 .feature-1 {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-    text-align: center;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  text-align: center;
 
-    .tabs {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        margin: 0 auto 1.6rem;
+  .tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto 1.6rem;
 
-        @media screen and(max-width: 767px) {
-            max-width: 40rem;
-        }
-
-        li {
-            button {
-                font-size: 1.6rem;
-                padding: 0.8rem 1.6rem;
-                color: var(--tab-text);
-                background-color: transparent;
-                cursor: pointer;
-
-                &:hover,
-                &.active {
-                    background-color: var(--tab-hover);
-                }
-            }
-        }
+    @media screen and(max-width: 767px) {
+      max-width: 40rem;
     }
 
-    .carousel {
-        max-width: 75rem;
-        margin: auto;
-        padding-top: 5rem;
+    li {
+      button {
+        font-size: 1.6rem;
+        padding: 0.8rem 1.6rem;
+        color: var(--tab-text);
+        background-color: transparent;
+        cursor: pointer;
 
-        @media screen and(max-width: 767px) {
-            padding-top: 9rem;
+        &:hover,
+        &.active {
+          background-color: var(--tab-hover);
         }
+      }
+    }
+  }
 
-        :global(.slide) {
-            pointer-events: none;
-        }
+  .carousel {
+    max-width: 75rem;
+    margin: auto;
+    padding-top: 5rem;
 
-        .slide {
-            p {
-                text-align: center;
-                padding-left: 2.4rem;
-                padding-right: 2.4rem;
-                white-space: pre-wrap;
-            }
-        }
+    @media screen and(max-width: 767px) {
+      padding-top: 9rem;
     }
 
-    :global(.slider-control-topcenter) {
-        width: 100%;
+    :global(.slide) {
+      pointer-events: none;
     }
+
+    .slide {
+      p {
+        text-align: center;
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  :global(.slider-control-topcenter) {
+    width: 100%;
+  }
 }

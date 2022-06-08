@@ -4,6 +4,8 @@ import { useRecoilState } from 'recoil';
 
 import { activeRouteState } from 'store/store';
 
+// 헤더에서 route active 변경 시
+
 const useRouteScrolling = ({
   ref,
   route,

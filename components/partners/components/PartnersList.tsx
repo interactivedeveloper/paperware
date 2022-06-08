@@ -1,7 +1,5 @@
 import classNames from 'classnames';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Image from 'next/image';
-import { MouseEvent } from 'react';
 import useCollapse from 'react-collapsed';
 
 import styles from './PartnersList.module.scss';
@@ -16,8 +14,6 @@ interface Props {
 const PartnersList = ({ title, partners, rows, buttonLabel }: Props) => {
   const { getCollapseProps, getToggleProps, isExpanded } = useCollapse({
     collapsedHeight: 100 * rows,
-    onCollapseEnd: ScrollTrigger.refresh,
-    onExpandEnd: ScrollTrigger.refresh,
   });
 
   return (

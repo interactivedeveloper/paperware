@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom } from "recoil";
 
 export const activeRouteState = atom({
   key: "activeRouteState",
@@ -12,5 +12,10 @@ export const channelIOBootedState = atom({
 
 export const scrollStartedState = atom({
   key: "scrollStartedState",
+  default: false,
+});
+
+export const animationEndedState = atom({
+  key: "animationEndedState",
   default: false,
 });

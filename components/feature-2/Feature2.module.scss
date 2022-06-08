@@ -47,9 +47,6 @@
       @for $i from 1 through 11 {
         :global(#step-#{$i}-container) {
           &:hover {
-            // transform: scale(1.01);
-            // transform-origin: center center;
-            // transition: transform 0.2s;
             filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
             -webkit-filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
             filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
@@ -59,10 +56,6 @@
         }
 
         :global(#step-m-#{$i}-container) {
-          :global(#step-m-#{$i}) {
-            will-change: transform, opacity;
-          }
-
           &:hover {
             filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
             -webkit-filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));

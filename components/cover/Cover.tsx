@@ -34,10 +34,14 @@ const Cover = () => {
   const [slideActive, setSlideActive] = useState(0);
 
   useEffect(() => {
+    // channel.io 레이지로드 / 스크롤이 시작되었을 때 또는 유저가 아무것도 안할시 5초
     ScrollTrigger.create({
       trigger: ref.current,
       start: "+=1 top",
-      onEnter: () => setScrollStarted(true),
+      once: true,
+      onEnter: () => {
+        setScrollStarted(true);
+      },
     });
     setTimeout(() => setScrollStarted(true), 5000);
 
@@ -49,11 +53,16 @@ const Cover = () => {
       },
       opacity: 1,
       duration: 0.2,
+      onComplete: () => {
+        document.body.style.overflow = "";
+      },
     });
   }, []);
 
-  const beforeSlide = (currentSlide: number, nextSlide: number) =>
-    setSlideActive(nextSlide % 5);
+  const beforeSlide = useCallback(
+    (currentSlide: number, nextSlide: number) => setSlideActive(nextSlide % 5),
+    []
+  );
 
   const renderTopCenterControls = useCallback(
     ({ goToSlide }: CarouselSlideRenderControlProps) => (

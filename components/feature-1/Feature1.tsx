@@ -1,13 +1,13 @@
-import classNames from 'classnames';
-import { gsap } from 'gsap';
-import Image from 'next/image';
+import classNames from "classnames";
+import { gsap } from "gsap";
+import Image from "next/image";
 import Carousel, {
   CarouselProps,
   CarouselSlideRenderControlProps,
-} from 'nuka-carousel';
-import { useCallback, useRef, useState } from 'react';
+} from "nuka-carousel";
+import { useCallback, useRef, useState } from "react";
 
-import styles from './Feature1.module.scss';
+import styles from "./Feature1.module.scss";
 
 const tabs = [
   {
@@ -79,14 +79,14 @@ const Feature1 = () => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const [slideActive, setSlideActive] = useState(0);
 
-  const beforeSlide = (currentSlide: number, nextSlide: number) => {
+  const beforeSlide = useCallback((currentSlide: number, nextSlide: number) => {
     gsap.fromTo(
       titleRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 0.5 }
     );
     setSlideActive(nextSlide % tabs.length);
-  };
+  }, []);
 
   const renderTopCenterControls = useCallback(
     ({ goToSlide }: CarouselSlideRenderControlProps) => (
