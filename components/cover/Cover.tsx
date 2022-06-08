@@ -38,7 +38,6 @@ const Cover = () => {
     ScrollTrigger.create({
       trigger: ref.current,
       start: "+=1 top",
-      once: true,
       onEnter: () => {
         setScrollStarted(true);
       },

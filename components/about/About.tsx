@@ -21,7 +21,6 @@ const About = () => {
     ScrollTrigger.create({
       trigger: ref.current,
       start: "top bottom",
-      once: true,
       onEnter: loadMap,
     });
   }, []);

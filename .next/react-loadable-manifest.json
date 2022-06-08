@@ -11,7 +11,7 @@
     "files": [
       "static/chunks/972.38387c8824038737.js",
       "static/css/3342d3caa1f086d5.css",
-      "static/chunks/398.cd171cca1561cfed.js"
+      "static/chunks/398.367fc272e8c11c10.js"
     ]
   },
   "../components/feature-2/Feature2.tsx -> ./components/StepsM": {
@@ -19,7 +19,7 @@
     "files": [
       "static/chunks/972.38387c8824038737.js",
       "static/css/3342d3caa1f086d5.css",
-      "static/chunks/206.58954fe688ffe6b0.js"
+      "static/chunks/206.2f8f46d3cf6ad06d.js"
     ]
   },
   "../components/process/Process.tsx -> ./components/InquiryModal": {

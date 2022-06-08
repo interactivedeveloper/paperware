@@ -47,7 +47,6 @@ const PartnersText = () => {
       scrollTrigger: {
         trigger: ref.current,
         start: "top bottom",
-        once: true,
       },
     });
 

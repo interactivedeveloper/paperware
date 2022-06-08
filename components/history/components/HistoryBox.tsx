@@ -22,7 +22,6 @@ const HistoryBox = ({ year, texts }: Props) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ref.current,
-          once: true,
         },
       });
       tl.to(

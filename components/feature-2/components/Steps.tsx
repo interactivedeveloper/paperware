@@ -1,11 +1,11 @@
-import { gsap } from "gsap";
-import { useEffect } from "react";
-import { useRecoilState } from "recoil";
-import { animationEndedState } from "store/store";
-import StepsSvg from "svgs/steps.svg";
+import { gsap } from 'gsap';
+import { useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+import StepsSvg from 'svgs/steps.svg';
 
-import styles from "../Feature2.module.scss";
-import Feature2Item from "./Feature2Item";
+import { animationEndedState } from 'store/store';
+import styles from '../Feature2.module.scss';
+import Feature2Item from './Feature2Item';
 
 const Steps = ({
   items,
@@ -20,7 +20,6 @@ const Steps = ({
       scrollTrigger: {
         trigger: document.querySelector(`.${styles["feature-2"]}`),
         start: "25% bottom",
-        once: true,
       },
     });
     for (let i = 1; i <= 11; i++) {

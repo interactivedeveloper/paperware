@@ -40,7 +40,6 @@ const History = () => {
     gsap.to(h3, {
       scrollTrigger: {
         trigger: h3,
-        once: true,
       },
       y: 0,
       opacity: 1,
