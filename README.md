@@ -23,7 +23,8 @@ pm2 start npm --name "next-js" -- start<br />
 
 ## How to update your website
 
-프로젝트를 컴퓨터에 빌드하고 서버에 push 그리고 pull 하십시오. pull 시 웹사이트가 즉시 interruption 없이 업데이트 됩니다.<br />
+프로젝트를 컴퓨터에 빌드하고 서버에 push 그리고 pull 하십시오.<br/>
+만약 pull 시 업데이트가 제대로 적용되지 않으면 pm2 stop / pm2 start를 실행해 보시기 바랍니다. <br/>
 
 ## About apis keys
 

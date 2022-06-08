@@ -2,8 +2,8 @@
   "../components/common/Layout.tsx -> ../common/ChannelIO": {
     "id": 6245,
     "files": [
-      "static/chunks/677-a035de37c59dc81a.js",
-      "static/chunks/245.8fb0b30352adc800.js"
+      "static/chunks/546-f732bb787c7fcf65.js",
+      "static/chunks/245.a59fc5511d7853f6.js"
     ]
   },
   "../components/feature-2/Feature2.tsx -> ./components/Steps": {
